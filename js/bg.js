@@ -1,5 +1,5 @@
-const cWidth = 64;
-const cHeight = 64;
+const cWidth = 128;
+const cHeight = 128;
 
 // setup
 const canv = document.createElement('canvas');
@@ -8,13 +8,16 @@ canv.height = cHeight;
 document.body.appendChild(canv);
 canv.style = `
 position: fixed;
-top:0;
-left:0;
+top:-3px;
+left:-3px;
 z-index: -1;
-filter: opacity(80%) blur(3px);
-width: 200%;
+filter: blur(2px);
 image-rendering: pixelated;
 `;
+const resCanv = ()=>{
+  canv.width = Math.floor(window.innerWidth / window.innerHeight * 128);
+};
+window.addEventListener('resize', resCanv);
 const ctx = canv.getContext('2d');
 const bgImg = ctx.getImageData(0,0,cWidth,cHeight);
 const bgData = new Uint8ClampedArray(
@@ -31,7 +34,7 @@ const startWorld = ()=>{
   const f = new Uint8ClampedArray(
     cWidth * cHeight * 4
   );
-  const newColor = [64 + Math.random() * 128, 64 + Math.random() * 128, 64 + Math.random() * 128];
+  const newColor = [128 + Math.random() * 128, 128, 128 + Math.random() * 128];
   for(let i=0;i<cWidth*cHeight;i++){
     f.set(
       Math.random()>.80?[...newColor,255]:[...newColor,0],
