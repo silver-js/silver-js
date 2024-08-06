@@ -1,0 +1,34 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  color: #dff;
+  background-color: #011;
+  font-family: "courier new";
+  padding: 1rem .5rem;
+}
+header{
+  text-align: center;
+  padding-bottom: 2rem;
+}
+header img{
+  width: 10rem;
+  border-radius: 50%;
+}
+header h1{
+  font-size: 3rem;
+  width: 100%;
+  top: 3.5rem;
+  text-shadow: 0 0 2px #000;
+}
+article{
+  padding-bottom: 1rem;
+}
+footer{
+  position: fixed;
+  inset: auto 0 0 0;
+  text-align: center;
+  font-size: .75rem;
+  background: #011;
+}
