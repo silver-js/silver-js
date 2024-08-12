@@ -19,12 +19,7 @@ canvas{
   width: 102%;
   image-rendering: pixelated;
   z-index: -1;
-  
-    
-    background: radial-gradient(#000, #909 20%, #000 40%, #000 60%, #909 80%, #000);
-  /*
-    background: radial-gradient(#000, #909, #000,#909, #909);
-    */
+  background-color: #000;
 }
 header img{
   width: 8rem;
