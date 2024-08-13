@@ -6,22 +6,6 @@ const glCanvas = document.createElement('canvas');
 const gl = glCanvas.getContext('webgl');
 
 
-//<-- First frame drawn -->//
-const reset = ()=>{
-  const w = canvas.width;
-  const h = canvas.height;
-  const canvImg = ctx.getImageData(0, 0, w, h);
-  const imgData = new Uint8ClampedArray(w * h * 4).fill(255);
-  for(let i = 0; i < w * h; i++){
-    if(Math.random() < .8){
-      imgData.set([0,0,0],i*4);
-    }
-  }
-  canvImg.data.set(imgData);
-  ctx.putImageData(canvImg, 0, 0);
-}
-
-
 const setup = ()=>{
   const vertShaderSource = [
     `attribute vec2 position;`,
@@ -130,7 +114,7 @@ const resize = (w, h, zoom)=>{
   }
   if(changed){
     gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
-    reset();
+    
     setup();
   }
   return {w: newWidth, h: newHeight}
@@ -150,7 +134,6 @@ gameLoop();
 
 
 export default {
-  reset,
   resize,
   frame: ()=>{
     return canvas;
