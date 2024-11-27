@@ -112,28 +112,19 @@ const setup = ()=>{
 
 
 //<-- Resize function -->//
-const resize = (w, h, zoom)=>{
-  const bitWidth = w.toString(2).length - zoom;
-  const bitHeight = h.toString(2).length - zoom + 1;
+const resize = (w, zoom)=>{
+  const bitWidth = w. toString(2).length - zoom;
   const newWidth = Math.pow(2, bitWidth);
-  const newHeight = Math.pow(2, bitHeight);
-  let changed = false;
   if(newWidth != canvas.width){
-    canvas.width = Math.pow(2, bitWidth);
+    canvas.width = newWidth;
     glCanvas.width = canvas.width;
-    changed = true;
-  }
-  if(newHeight != canvas.height){
-    canvas.height = Math.pow(2, bitHeight);
+    canvas.height = newWidth;
     glCanvas.height = canvas.height;
-    changed = true;
-  }
-  if(changed){
     gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
     reset();
     setup();
   }
-  return {w: newWidth, h: newHeight}
+  return newWidth;
 }
 
 
@@ -143,9 +134,9 @@ const gameLoop = ()=>{
   gl.drawArrays(gl.TRIANGLES, 0, 6);
 
   ctx.drawImage(glCanvas,0,0);
-  setTimeout(gameLoop,500);
+  setTimeout(gameLoop,200);
 }
-resize(128,128,0);
+resize(128,0);
 gameLoop();
 
 

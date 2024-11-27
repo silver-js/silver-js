@@ -1,5 +1,4 @@
 import gameOfLife from './gameOfLife.js';
-import waves from './waves.js';
 
 ///////////
 // Setup //
@@ -14,9 +13,11 @@ document.body.appendChild(canvas);
 
 //<-- Resize event -->//
 const resize = ()=>{
-  const newSize = gameOfLife.resize(window.innerWidth,window.innerHeight, 4);
-  canvas.width = newSize.w;
-  canvas.height = newSize.h;
+  const r = window.innerWidth > window.innerHeight ? window.innerWidth : window.innerHeight; 
+  const newSize = gameOfLife.resize(r,3);
+  canvas.width = newSize;
+  canvas.height = newSize;
+  console.log(newSize);
 }
 window.addEventListener('resize', resize);
 resize();
@@ -24,8 +25,7 @@ resize();
 
 //<-- Rendering background -->//
 const renderBg = ()=>{
-  //ctx.drawImage(gameOfLife.frame(),0,0);
-  ctx.drawImage(waves.frame(gameOfLife.frame()),0,0);
+  ctx.drawImage(gameOfLife.frame(),0,0);
   requestAnimationFrame(renderBg);
 }
 renderBg();

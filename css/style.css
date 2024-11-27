@@ -1,43 +1,88 @@
+@font-face{
+  font-family: lp;
+  src: url('./light_pixel-7.ttf');
+}
+@font-face{
+  font-family: squarewave;
+  src: url('./Squarewave.ttf');
+}
 *{
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 body{
   color: #dff;
-  font-family: "courier new";
+  background: black;
+  font-family: "squarewave";
+  font-size: 1.5rem;
   padding: 1rem .5rem;
-}
-header{
-  text-align: center;
-  padding-bottom: 2rem;
 }
 canvas{
   position: fixed;
-  filter: blur(1px);
-  top: -1vw;
-  left: -1%;
-  width: 102%;
+  filter: blur(1px) opacity(85%);
+  top: calc((100vh - 130vmax) / 2);
+  left: calc((100vw - 130vmax) / 2);
+  width: 130vmax;
   image-rendering: pixelated;
   z-index: -1;
   background-color: #000;
+  animation: ani-rotate 500s linear infinite;
+}
+header{
+  text-align: center;
+  color: #000;
+  text-shadow: -1px -1px 2px #fff, 1px 1px 2px #fff;
+  font-family: lp;
+  padding-bottom: 2rem;
 }
 header img{
   width: 8rem;
   border-radius: 0%;
+  box-shadow: 0 0 0 4px white;
+  filter: grayscale(100%);
+}
+header h1, header h6{
+  padding: .5rem;
+  width: 17rem;
+  background-color: #111c;
+  margin: 0 auto;
 }
 header h1{
-  font-size: 3rem;
-  width: 100%;
+  font-size: 2.5rem;
+  padding-bottom: 0;
   top: 3.5rem;
-  text-shadow: 0 0 2px #000;
 }
-article{
+header h6{
+  padding-top: 0;
+}
+main article{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
   padding-bottom: 1rem;
+}
+article h4, article p{
+  padding: .3rem;
+  width: 48%;
+  background-color: #111c;
+}
+article h4{
+  text-align: center;
 }
 footer{
   position: fixed;
   inset: auto 0 0 0;
   text-align: center;
-  font-size: .75rem;
+  font-size: 1.3rem;
   background: #011;
+}
+
+@keyframes ani-rotate{
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
 }
