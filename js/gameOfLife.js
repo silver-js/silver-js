@@ -14,7 +14,7 @@ const reset = ()=>{
   const imgData = new Uint8ClampedArray(w * h * 4).fill(255);
   for(let i = 0; i < w * h; i++){
     if(Math.random() < .8){
-      imgData.set([0,0,0],i*4);
+      imgData.set([160,0,160],i*4);
     }
   }
   canvImg.data.set(imgData);
@@ -53,12 +53,12 @@ const setup = ()=>{
     `  vec4 hColor = texture2D(textureSampler,texCoords+vec2(xSize,-ySize));`,
     
     //check neighbors
-    `  float neighbors = aColor.r + bColor.r + cColor.r + dColor.r + eColor.r + fColor.r + gColor.r + hColor.r;`,
-    `  if(color.r>0.5){`,
+    `  float neighbors = aColor.g + bColor.g + cColor.g + dColor.g + eColor.g + fColor.g + gColor.g + hColor.g;`,
+    `  if(color.g>0.5){`,
     
     //alive rules
     `    if(neighbors<2.0 || neighbors>3.0){`,
-    `      color=vec4(0.0,0.0,0.0,1.0);`,
+    `      color=vec4(0.625,0.0,0.625,1.0);`,
     `    }`,
     `  }else{`,
     //dead rules
@@ -134,7 +134,7 @@ const gameLoop = ()=>{
   gl.drawArrays(gl.TRIANGLES, 0, 6);
 
   ctx.drawImage(glCanvas,0,0);
-  setTimeout(gameLoop,200);
+  setTimeout(gameLoop,250);
 }
 resize(128,0);
 gameLoop();

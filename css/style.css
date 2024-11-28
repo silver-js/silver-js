@@ -1,9 +1,9 @@
 @font-face{
-  font-family: lp;
-  src: url('./light_pixel-7.ttf');
+  font-family: swb;
+  src: url('./Squarewave-Bold.ttf');
 }
 @font-face{
-  font-family: squarewave;
+  font-family: sw;
   src: url('./Squarewave.ttf');
 }
 *{
@@ -12,63 +12,79 @@
   box-sizing: border-box;
 }
 body{
-  color: #dff;
-  background: black;
-  font-family: "squarewave";
+  color: #eff;
+  background: #909;
+  font-family: "sw";
   font-size: 1.5rem;
   padding: 1rem .5rem;
 }
+h1,h2,h3,h4,h5,h6{
+  font-family: "swb";
+}
 canvas{
   position: fixed;
-  filter: blur(1px) opacity(85%);
+  filter: blur(1px) opacity(70%);
   top: calc((100vh - 130vmax) / 2);
   left: calc((100vw - 130vmax) / 2);
   width: 130vmax;
   image-rendering: pixelated;
   z-index: -1;
-  background-color: #000;
   animation: ani-rotate 500s linear infinite;
 }
 header{
   text-align: center;
-  color: #000;
-  text-shadow: -1px -1px 2px #fff, 1px 1px 2px #fff;
-  font-family: lp;
+  text-shadow: -1px -1px 2px #000, 1px 1px 2px #000;
   padding-bottom: 2rem;
 }
 header img{
   width: 8rem;
-  border-radius: 0%;
+  border-radius: 1%;
   box-shadow: 0 0 0 4px white;
-  filter: grayscale(100%);
-}
-header h1, header h6{
-  padding: .5rem;
-  width: 17rem;
-  background-color: #111c;
-  margin: 0 auto;
 }
 header h1{
-  font-size: 2.5rem;
-  padding-bottom: 0;
-  top: 3.5rem;
+  font-size: 3.4rem;
 }
-header h6{
-  padding-top: 0;
+header h4{
+  font-size: 1.8rem;
+}
+.l-bubble{
+  border-radius: 3rem 0 0 3rem;
+  text-align: center;
+}
+.r-bubble{
+  border-radius: 0 3rem 3rem 0;
+  text-align: center;
 }
 main article{
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  justify-content: center;
+  align-items: start;
   padding-bottom: 1rem;
 }
-article h4, article p{
-  padding: .3rem;
-  width: 48%;
-  background-color: #111c;
+article h3, article p, article .text-wrapper{
+  padding: .5rem;
+  width: 49%;
+  background-color: #1118;
+  text-shadow: -1px -1px 1px #000, 1px 1px 1px #000;
 }
-article h4{
+article p, article .text-wrapper{
+  padding-bottom: 2rem;
+}
+article li{
+  list-style-type: square;
+  margin-left: 2rem;
+}
+article .link-wrapper{
   text-align: center;
+}
+article a{
+  color: black;
+  text-shadow: none;
+  font-size: 2rem;
+  display: inline-block;
+  padding: 0 .5rem;
+  background-color: #fff;
+
 }
 footer{
   position: fixed;
