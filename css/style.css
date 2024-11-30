@@ -13,17 +13,31 @@
 }
 body{
   color: #eff;
-  background: #909;
+  background: #505;
   font-family: "sw";
   font-size: 1.5rem;
   padding: 1rem .5rem;
 }
 h1,h2,h3,h4,h5,h6{
   font-family: "swb";
+  animation: ani-title .2s linear infinite;
+  color: #fdf;
+  text-shadow: 1px 1px 2px #000, 3px 3px 4px #f5f, -3px 3px 4px #f5f, 3px -3px 4px #f5f, -3px -3px 4px #f5f;
+}
+@keyframes ani-title{
+  48%{
+    text-shadow: 1px 1px 2px #000, 3px 3px 4px #f5f, -3px 3px 4px #f5f, 3px -3px 4px #f5f, -3px -3px 4px #f5f;
+  }
+  50%{
+    text-shadow: 1px 1px 2px #000, 1px 1px 4px #f5f, -1px 1px 4px #f5f, 1px -1px 4px #f5f, -1px -1px 4px #f5f;
+  }
+  52%{
+    text-shadow: 1px 1px 2px #000, 3px 3px 4px #f5f, -3px 3px 4px #f5f, 3px -3px 4px #f5f, -3px -3px 4px #f5f;
+  }
 }
 canvas{
   position: fixed;
-  filter: blur(1px) opacity(70%);
+  filter: blur(1px) opacity(75%);
   top: calc((100vh - 130vmax) / 2);
   left: calc((100vw - 130vmax) / 2);
   width: 130vmax;
@@ -37,15 +51,25 @@ header{
   padding-bottom: 2rem;
 }
 header img{
+  position: relative;
   width: 8rem;
   border-radius: 1%;
   box-shadow: 0 0 0 4px white;
+}
+header img:hover{
+  animation: ani-logo 1s linear infinite;
 }
 header h1{
   font-size: 3.4rem;
 }
 header h4{
   font-size: 1.8rem;
+}
+.big{
+  width: 54%;
+}
+.small{
+  width: 44%;
 }
 .l-bubble{
   border-radius: 3rem 0 0 3rem;
@@ -59,16 +83,15 @@ main article{
   display: flex;
   justify-content: center;
   align-items: start;
-  padding-bottom: 1rem;
+  padding-bottom: 3rem;
 }
 article h3, article p, article .text-wrapper{
   padding: .5rem;
-  width: 49%;
-  background-color: #1118;
-  text-shadow: -1px -1px 1px #000, 1px 1px 1px #000;
+  background-color: #111a;
 }
 article p, article .text-wrapper{
   padding-bottom: 2rem;
+  text-shadow: -1px -1px 1px #000, 1px 1px 1px #000;
 }
 article li{
   list-style-type: square;
@@ -100,5 +123,23 @@ footer{
   }
   100%{
     transform: rotate(360deg);
+  }
+}
+@keyframes ani-logo{
+
+  0%{
+    transform: scale(1);
+  }
+  60%{
+    transform: scale(1);
+  }
+  70%{
+    transform: scaleX(1.05);
+  }
+  80%{
+    transform: scaleX(1);
+  }
+  90%{
+    transform: scaleY(1.05);
   }
 }

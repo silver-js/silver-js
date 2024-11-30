@@ -14,7 +14,7 @@ const reset = ()=>{
   const imgData = new Uint8ClampedArray(w * h * 4).fill(255);
   for(let i = 0; i < w * h; i++){
     if(Math.random() < .8){
-      imgData.set([160,0,160],i*4);
+      imgData.set([64,0,64],i*4);
     }
   }
   canvImg.data.set(imgData);
@@ -58,12 +58,14 @@ const setup = ()=>{
     
     //alive rules
     `    if(neighbors<2.0 || neighbors>3.0){`,
-    `      color=vec4(0.625,0.0,0.625,1.0);`,
-    `    }`,
+    `      color=vec4(0.25,0.0,0.25,1.0);`,
+    `    }else{`,
+    `   color = vec4(0.0,1.0,1.0,1.0);`,
+    `}`,
     `  }else{`,
     //dead rules
     `    if(neighbors==3.0){`,
-    `      color=vec4(1.0,1.0,1.0,1.0);`,
+    `      color=vec4(0.0,1.0,0.5,1.0);`,
     `    }`,
     `  }`,
     /////////////////////////////
